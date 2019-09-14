@@ -26,7 +26,7 @@ public class DriveOpMode extends LinearOpMode {
             leftDrive.setPower(left_power);
             rightDrive.setPower(left_power);
             telemetry.addData("Left Motor Power: ", left_power);
-            telemetry.addData("Right Motor Power: ", right_power);
+            telemetry.addData("Right Motor Power: ", left_power);
             telemetry.update();
         }
     }
