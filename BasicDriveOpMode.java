@@ -7,14 +7,14 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 @TeleOp(name="BasicDrive Op Mode", group="Linear Opmode")
 
-public class DriveOpMode extends LinearOpMode {
-    private DcMotor leftDrive;
-    private DcMotor rightDrive;
+public class BasicDriveOpMode extends LinearOpMode {
+    private DcMotor lefMotor;
+    private DcMotor rightMotor;
     
     @Override
     public void init() {
-        leftDrive = hardwareMap.get('leftMotor');
-        rightDrive = hardwareMap.get('rightMotor');
+        leftDrive = hardwareMap.get(leftMotor);
+        rightDrive = hardwareMap.get(rightMotor);
         telemetry.addData("Status: ","Runnning");
         telemetry.update();
     }
