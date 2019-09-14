@@ -10,7 +10,8 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 public class DriveOpMode extends LinearOpMode {
     private DcMotor leftDrive;
     private DcMotor rightDrive;
-
+    
+    @Override
     public void init() {
         leftDrive = hardwareMap.get('leftMotor');
         rightDrive = hardwareMap.get('rightMotor');
