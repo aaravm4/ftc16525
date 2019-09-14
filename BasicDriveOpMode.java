@@ -11,6 +11,8 @@ public class BasicDriveOpMode extends LinearOpMode {
     private DcMotor lefMotor;
     private DcMotor rightMotor;
     
+    HardwareMap hardwareMap;
+    
     @Override
     public void init() {
         leftDrive = hardwareMap.get(leftMotor);
