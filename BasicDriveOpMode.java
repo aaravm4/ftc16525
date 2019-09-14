@@ -18,7 +18,8 @@ public class BasicDriveOpMode extends LinearOpMode {
         telemetry.addData("Status: ","Runnning");
         telemetry.update();
     }
-
+    
+    @Override
     public void runOpMode() {
         while (opModeIsActive()) {
             /* check gamestick val and config */
