@@ -10,7 +10,7 @@ import com.qualcomm.robotcore.util.Range;
     private DcMotor rightDrive;
     public void init() {
         left = hardwareMap.dcMotor.get("leftDrive");
-        right = hardwareMap.dcMotor.get("rightDruve");
+        right = hardwareMap.dcMotor.get("rightDrive");
     }
     public void loop() {
         right.setPower(gamepad1.right_stick_y);
