@@ -1,11 +1,16 @@
+
 package org.firstinspires.ftc.robotcontroller.external.samples;
+
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
-@TeleOp(name = "BasicDriveOpMode", group = "Linear Opmode") @TeleOp public class BasicDriveOpMode extends OpMode {
+
+@TeleOp(name = "BasicDriveOpMode", group = "Linear Opmode")
+
+public class BasicDriveOpMode extends OpMode {
     private DcMotor leftDrive;
     private DcMotor rightDrive;
     public void init() {
