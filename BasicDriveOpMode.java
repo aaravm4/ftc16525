@@ -9,7 +9,6 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
 @TeleOp(name="BasicDriveOpMode", group="Linear Opmode")
-@Disabled
 public class BasicDriveOpMode extends LinearOpMode {
 
     // Declare OpMode members.
