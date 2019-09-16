@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
-@TeleOp(name="BasicDriveOpMode", group="Linear Opmode")
+@TeleOp(name="Drive With Gamepads", group="Linear Opmode")
 //@Disabled
 public class BasicDriveOpMode extends LinearOpMode {
 
