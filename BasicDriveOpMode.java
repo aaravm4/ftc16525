@@ -27,8 +27,9 @@ public class BasicDriveOpMode extends LinearOpMode {
 
     @Override
     public void runOpMode() {
-        leftDrive.setPower(-gamepade1.left_stick_y);
-        rightDrive.setPower(-gamepad1.right_sitck_y);
-        
+        while (opModeIsActive()) {
+            leftDrive.setPower(-gamepade1.left_stick_y);
+            rightDrive.setPower(-gamepad1.right_sitck_y);
+        }
     }
 }
