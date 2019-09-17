@@ -19,15 +19,12 @@ public class BasicDriveOpMode extends LinearOpMode {
     // Declare OpMode members.
     private DcMotor leftDrive;
     private DcMotor rightDrive;
-    
-    
-    @Override
-    public void init() {
-        leftDrive = hardwareMap.get(DcMotor.class, "leftDrive");
-        rightDrive = hardwareMap.get(DcMotor.class, "rightDrive");
-        /* When you mount motors they usually run in different directions */
-        rightDrive.setDirection(DcMotor.Direction.REVERSE);
-    }
+
+
+    leftDrive = hardwareMap.get(DcMotor.class, "leftDrive");
+    rightDrive = hardwareMap.get(DcMotor.class, "rightDrive");
+    /* When you mount motors they usually run in different directions */
+    rightDrive.setDirection(DcMotor.Direction.REVERSE);
 
 
     @Override
