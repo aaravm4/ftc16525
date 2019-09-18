@@ -5,3 +5,82 @@
  * Beginners are welcome to use this code
  * To get bearings on BASIC Onbot Java
  */
+
+
+package org.firstinspires.ftc.teamcode;
+
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.util.ElapsedTime;
+import com.qualcomm.robotcore.util.Range;
+
+
+@TeleOp(name="Basic: Linear OpMode Cool", group="Linear Opmode")
+
+public class BasicDriveOpMode extends LinearOpMode {
+
+    // Declare OpMode members.
+    private ElapsedTime runtime = new ElapsedTime();
+    private DcMotor leftDrive = null;
+    private DcMotor rightDrive = null;
+
+    @Override
+    public void runOpMode() {
+        telemetry.addData("Status", "Initialized");
+        telemetry.update();
+
+        leftDrive  = hardwareMap.get(DcMotor.class, "leftDrive");
+        rightDrive = hardwareMap.get(DcMotor.class, "rightDrive");
+
+        leftDrive.setDirection(DcMotor.Direction.FORWARD);
+        rightDrive.setDirection(DcMotor.Direction.FORWARD);
+        
+        waitForStart();
+        runtime.reset();
+
+        while (opModeIsActive()) {
+
+            double uniPower;
+            double flag;
+           
+            if (gamepad1.right_stick_y) {
+                uniPower = -gamepad1.right_stick_y;
+                String flag = drive;
+            } 
+            
+            else if (gamepad1.right_stick_x) {
+                uniPower = -gamepad1.right_stick_x;
+                String flag = turn;
+            } 
+          
+          if(flag == drive){
+            leftDrive.setPower(uniPower);
+            rightDrive.setPower(uniPower);
+          }
+          
+          else if (flag == turn){
+            if (uniPower > 0) {
+              rightDrive.setPower(uniPower);
+              leftDrive.setPower(0);
+            }
+            else {
+              leftDrive.setPower(uniPower);
+              rightDrive.setPower(0);
+            }
+          }   
+            rightPower  =  -gamepad1.left_stick_y;
+            
+            leftDrive.setPower(leftPower/2);
+            rightDrive.setPower(rightPower/2);
+
+            telemetry.addData("Status", "Run Time: " + runtime.toString());
+            telemetry.addData("Motors", "left (%.2f), right (%.2f)", leftPower, rightPower);
+            telemetry.update();
+          	
+          	telemetry.addData("LeftStickX: ", + uniPower);
+            telemetry.update();
+        }
+    }
+}
