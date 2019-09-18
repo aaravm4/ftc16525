@@ -43,15 +43,7 @@ public class AutoTestRun extends LinearOpMode {
             leftDrive.setPower(0.25);
             rightDrive.setPower(0.25);
             /* Running for 3 seconds */
-            sleep(3000);
-            /* Letting Driver Know Robot is Rotating Right */
-            telemetry.addData("Status: ", "Rotating Right");
-            telemetry,update();
-            /* Setting Respective Powers to Rotate Right */
-            leftDrive.setPower(0.25);
-            rightDrive.setPower(-0.25);
-            /* Running to make 360 degrees */
-            sleep(6800);
+            sleep(1000);
             /* Letting Driver Know Robot is Moving Backward */
             telemetry.addData("Status: ", "Moving Backwards");
             telemetry.update();
@@ -59,7 +51,15 @@ public class AutoTestRun extends LinearOpMode {
             leftDrive.setPower(-0.25);
             rightDrive.setPower(-0.25);
             /* Running for 3 seconds */
-            sleep(3000);
+            sleep(1000);
+            /* Letting Driver Know Robot is Rotating Right */
+            telemetry.addData("Status: ", "Rotating Right");
+            telemetry,update();
+            /* Setting Respective Powers to Rotate Right */
+            leftDrive.setPower(0.25);
+            rightDrive.setPower(-0.25);
+            /* Running to make 360 degrees */
+            sleep(1000);
             /* Letting Driver Know Robot is Rotating Left */
             telemetry.addData("Status: ", "Rotating Left");
             telemetry.update();
@@ -67,7 +67,7 @@ public class AutoTestRun extends LinearOpMode {
             leftDrive.setPower(-0.25);
             rightDrive.setPower(0.25);
             /* Running to make 360 degrees */
-            sleep(6800);
+            sleep(1000);
             /* Letting Driver Know Program is Finished */
             telemetry.addData("Status: ", "Program Executed");
             telemetry.update();
