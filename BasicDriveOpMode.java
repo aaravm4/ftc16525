@@ -25,6 +25,7 @@ public class BasicDriveOpMode extends LinearOpMode {
     private ElapsedTime runtime = new ElapsedTime();
     private DcMotor leftDrive = null;
     private DcMotor rightDrive = null;
+    private Servo bringPlatform = null;
 
     @Override
     public void runOpMode() {
@@ -50,6 +51,13 @@ public class BasicDriveOpMode extends LinearOpMode {
             
             leftDrive.setPower(leftPower/2);
             rightDrive.setPower(rightPower/2);
+            
+            if (gamepad1.left_bumper.isBusy()) {
+            		testServo.setPosition(1);
+          	}
+          	else if (gamepad1.right_bumper.isBusy()) {
+            		testServo.setPosition(0);
+          	}
 
             telemetry.addData("Status", "Run Time: " + runtime.toString());
             telemetry.addData("Motors", "left (%.2f), right (%.2f)", leftPower, rightPower);
