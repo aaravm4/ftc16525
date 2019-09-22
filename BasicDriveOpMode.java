@@ -34,7 +34,7 @@ public class BasicDriveOpMode extends LinearOpMode {
 
         leftDrive  = hardwareMap.get(DcMotor.class, "leftDrive");
         rightDrive = hardwareMap.get(DcMotor.class, "rightDrive");
-        testServo = hardwareMap.get(Servo.class, "servo");
+        bringPlatform = hardwareMap.get(Servo.class, "bringPlatform");
         
         leftDrive.setDirection(DcMotor.Direction.FORWARD);
         rightDrive.setDirection(DcMotor.Direction.FORWARD);
@@ -54,10 +54,10 @@ public class BasicDriveOpMode extends LinearOpMode {
             rightDrive.setPower(rightPower/2);
             
             if (gamepad1.left_bumper.isBusy()) {
-            		testServo.setPosition(1);
+            		bringPlatform.setPosition(1);
           	}
           	else if (gamepad1.right_bumper.isBusy()) {
-            		testServo.setPosition(0);
+            		bringPlatform.setPosition(0);
           	}
 
             telemetry.addData("Status", "Run Time: " + runtime.toString());
