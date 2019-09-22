@@ -53,10 +53,10 @@ public class BasicDriveOpMode extends LinearOpMode {
             leftDrive.setPower(leftPower/2);
             rightDrive.setPower(rightPower/2);
             
-            if (gamepad1.left_bumper.isBusy()) {
+            if (gamepad1.left_bumper) {
             		bringPlatform.setPosition(1);
           	}
-          	else if (gamepad1.right_bumper.isBusy()) {
+          	else if (gamepad1.right_bumper) {
             		bringPlatform.setPosition(0);
           	}
 
