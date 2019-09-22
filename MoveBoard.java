@@ -33,12 +33,12 @@ public class MoveBoard extends LinearOpMode {
 
         while (opModeIsActive()) {
 
-    			if (gamepad1.left_bumper.isBusy()) {
-            testServo.setDirection(1);
-          }
-          else if (gamepad1.right_bumper.isBusy()) {
-            testServo.setDirection(0);
-          }
+    		if (gamepad1.left_bumper.isBusy()) {
+            		testServo.setPosition(1);
+          	}
+          	else if (gamepad1.right_bumper.isBusy()) {
+            		testServo.setPosition(0);
+          	}
 
         }
     }
