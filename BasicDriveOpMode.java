@@ -34,7 +34,8 @@ public class BasicDriveOpMode extends LinearOpMode {
 
         leftDrive  = hardwareMap.get(DcMotor.class, "leftDrive");
         rightDrive = hardwareMap.get(DcMotor.class, "rightDrive");
-
+        testServo = hardwareMap.get(Servo.class, "servo");
+        
         leftDrive.setDirection(DcMotor.Direction.FORWARD);
         rightDrive.setDirection(DcMotor.Direction.FORWARD);
         
