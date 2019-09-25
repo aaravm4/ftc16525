@@ -25,6 +25,7 @@ public class BasicDriveOpMode extends LinearOpMode {
     private ElapsedTime runtime = new ElapsedTime();
     private DcMotor leftDrive = null;
     private DcMotor rightDrive = null;
+    private DcMotor arm_motor = null;
     private Servo bringPlatform = null;
 
     @Override
@@ -34,6 +35,7 @@ public class BasicDriveOpMode extends LinearOpMode {
 
         leftDrive  = hardwareMap.get(DcMotor.class, "leftDrive");
         rightDrive = hardwareMap.get(DcMotor.class, "rightDrive");
+        arm_motor = hardwareMap.get(DcMotor.class, "arm_motor")
         bringPlatform = hardwareMap.get(Servo.class, "bringPlatform");
         
         leftDrive.setDirection(DcMotor.Direction.FORWARD);
@@ -46,12 +48,15 @@ public class BasicDriveOpMode extends LinearOpMode {
 
             double leftPower;
             double rightPower;
+            double armPower
 
             leftPower = -gamepad1.left_stick_y;
             rightPower  =  -gamepad1.right_stick_y;
+            armPower = -gamepad2.left_stick_y;
             
             leftDrive.setPower(leftPower/2);
             rightDrive.setPower(rightPower/2);
+            arm_motor.setPosition(armPower/2);
             
             if (gamepad1.left_bumper) {
             		bringPlatform.setPosition(1);
@@ -61,7 +66,9 @@ public class BasicDriveOpMode extends LinearOpMode {
           	}
 
             telemetry.addData("Status", "Run Time: " + runtime.toString());
-            telemetry.addData("Motors", "left (%.2f), right (%.2f)", leftPower, rightPower);
+            telemetry.addData("Left Motor: ", leftPower.toString());
+            telemetry.addData("Right Motor: ", rightPower.toString());
+            telemetry.addData("Arm Motor: ", armPower.toString());
             telemetry.update();
         }
     }
