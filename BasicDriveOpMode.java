@@ -17,7 +17,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
 
-@TeleOp(name="Basic: Linear OpMode Cool", group="Linear Opmode")
+@TeleOp(name="Drive Controlled", group="Linear Opmode")
 
 public class BasicDriveOpMode extends LinearOpMode throws InterruptedException {
 
