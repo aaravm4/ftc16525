@@ -26,7 +26,7 @@ public class BasicDriveOpMode extends LinearOpMode {
     private DcMotor leftDrive = null;
     private DcMotor rightDrive = null;
     private DcMotor arm_motor = null;
-    private Servo bringPlatform = null;
+    // private Servo bringPlatform = null;
 
     @Override
     public void runOpMode() {
@@ -36,10 +36,14 @@ public class BasicDriveOpMode extends LinearOpMode {
         leftDrive  = hardwareMap.get(DcMotor.class, "leftDrive");
         rightDrive = hardwareMap.get(DcMotor.class, "rightDrive");
         arm_motor = hardwareMap.get(DcMotor.class, "arm_motor")
-        bringPlatform = hardwareMap.get(Servo.class, "bringPlatform");
+        bringPlatform = hardwareMap.get(Servo.class, "bringPlat")
+            
+            
+        telemetry.addData("Status: ", "Hardware Configured");
+        telemetry.update();
         
-        leftDrive.setDirection(DcMotor.Direction.FORWARD);
-        rightDrive.setDirection(DcMotor.Direction.FORWARD);
+        // leftDrive.setDirection(DcMotor.Direction.FORWARD);
+        // rightDrive.setDirection(DcMotor.Direction.FORWARD);
         
         waitForStart();
         runtime.reset();
@@ -58,12 +62,12 @@ public class BasicDriveOpMode extends LinearOpMode {
             rightDrive.setPower(rightPower/2);
             arm_motor.setPosition(armPower/2);
             
-            if (gamepad1.left_bumper) {
-            		bringPlatform.setPosition(1);
-          	}
-          	else if (gamepad1.right_bumper) {
-            		bringPlatform.setPosition(0);
-          	}
+            // if (gamepad1.left_bumper) {
+            // 		bringPlatform.setPosition(1);
+          	// }
+          	// else if (gamepad1.right_bumper) {
+            //		bringPlatform.setPosition(0);
+          	// }
 
             telemetry.addData("Status", "Run Time: " + runtime.toString());
             telemetry.addData("Left Motor: ", leftPower.toString());
