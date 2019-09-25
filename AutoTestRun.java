@@ -61,7 +61,7 @@ public class AutoTestRun extends LinearOpMode {
             /* Running to make 360 degrees */
             sleep(1000);
             /* Letting Driver Know Robot is Rotating Left */
-            telemetry.addData("Status: ", "Rotating Left");
+            telemetry.addData("Status: ", "Rotating Left"); 
             telemetry.update();
             /* Setting Respective Powers to Rotate Left */
             leftDrive.setPower(-0.25);
