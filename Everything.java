@@ -99,7 +99,7 @@ public class Everything extends LinearOpMode {
               // Move arm left and right
               grabber_turn.setPosition(-gamepad2.left_stick_x);
               // Move arm collecter up and down
-              grabber_vertical.setPosition(gamepad2.right_stick_y);
+              grabber_vertical.setPosition(gamepad2.right_stick_x);
               // Move the whole arm up and down
               arm_motor.setPower(-gamepad2.left_stick_y/2);
               
