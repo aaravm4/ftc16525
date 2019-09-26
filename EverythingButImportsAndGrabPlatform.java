@@ -16,7 +16,18 @@ public class Everything extends LinearOpMode {
 	
     @Override
     public void runOpMode() {
+       /*
        
+	  _    _               _                           _____             __ _       
+	 | |  | |             | |                         / ____|           / _(_)      
+	 | |__| | __ _ _ __ __| |_      ____ _ _ __ ___  | |     ___  _ __ | |_ _  __ _ 
+	 |  __  |/ _` | '__/ _` \ \ /\ / / _` | '__/ _ \ | |    / _ \| '_ \|  _| |/ _` |
+	 | |  | | (_| | | | (_| |\ V  V / (_| | | |  __/ | |___| (_) | | | | | | | (_| |
+	 |_|  |_|\__,_|_|  \__,_| \_/\_/ \__,_|_|  \___|  \_____\___/|_| |_|_| |_|\__, |
+										   __/ |
+										  |___/ 
+	*/
+
       	// Left and right wheels
       	leftDrive  = hardwareMap.get(DcMotor.class, "leftDrive");
         rightDrive = hardwareMap.get(DcMotor.class, "rightDrive");
