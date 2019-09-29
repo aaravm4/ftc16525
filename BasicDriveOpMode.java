@@ -99,13 +99,7 @@ public class BasicDriveOpMode extends LinearOpMode {
                 grabber_vert.setPosition(bumpPower-.5);
             }
             
-            // if (gamepad1.left_bumper) {
-            //         bringPlatform.setPosition(1);
-              // }
-              // else if (gamepad1.right_bumper) {
-            //        bringPlatform.setPosition(0);
-              // }
-
+          
         }
     }
 }
