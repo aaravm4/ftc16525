@@ -39,7 +39,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Remove a @Disabled the on the next line or two (if present) to add this opmode to the Driver Station OpMode list,
  * or add a @Disabled annotation to prevent this OpMode from being added to the Driver Station
  */
-@TeleOp(name="Drive Controlled", group="Linear Opmode")
+@TeleOp(name="Test Controlled", group="Linear Opmode")
 
 public class BasicDriveOpMode extends LinearOpMode {
 
@@ -95,7 +95,7 @@ public class BasicDriveOpMode extends LinearOpMode {
             
             if (gamepad2.right_bumper) {
                 grabber_vert.setPosition(bumpPower+.5);
-            } else {
+            } else if (gamepad2.left_bumper){
                 grabber_vert.setPosition(bumpPower-.5);
             }
             
