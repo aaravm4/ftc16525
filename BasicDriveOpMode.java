@@ -50,6 +50,7 @@ public class BasicDriveOpMode extends LinearOpMode {
             double turnPower;
             double upPower;
             double bumpPower;
+           
 
             leftPower = -gamepad1.left_stick_y;
             rightPower  =  -gamepad1.right_stick_y;
