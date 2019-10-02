@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.Gyroscope;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -20,7 +21,7 @@ public class BasicDriveOpMode extends LinearOpMode {
     private DcMotor arm_motor = null;
     private Servo grabber_turn = null;
     private Servo grabber_vert = null;
-    // private Servo bringPlatform = null;
+    private Servo bringPlatform = null;
 
     @Override
     public void runOpMode() {
@@ -32,7 +33,10 @@ public class BasicDriveOpMode extends LinearOpMode {
         arm_motor = hardwareMap.get(DcMotor.class, "arm_motor");
         grabber_turn = hardwareMap.get(Servo.class, "grabber_turn");
         grabber_vert = hardwareMap.get(Servo.class, "grabber_vert");
+        bringPlatform = hardwareMap.get(Servo.class, "bringPlatform");
             
+        bringPlatform.setPosition(0);    
+        
         telemetry.addData("Status: ", "Hardware Configured");
         telemetry.update();
         
@@ -50,6 +54,7 @@ public class BasicDriveOpMode extends LinearOpMode {
             double turnPower;
             double upPower;
             double bumpPower;
+            double platPower;
            
 
             leftPower = -gamepad1.left_stick_y;
@@ -57,6 +62,7 @@ public class BasicDriveOpMode extends LinearOpMode {
             armPower = -gamepad2.left_stick_y;
             turnPower = -gamepad2.right_stick_x;
             bumpPower = 0;
+        
             
 
             leftDrive.setPower(leftPower/2);
@@ -68,6 +74,10 @@ public class BasicDriveOpMode extends LinearOpMode {
                 grabber_vert.setPosition(bumpPower+.5);
             } else if (gamepad2.left_bumper){
                 grabber_vert.setPosition(bumpPower-.5);
+            } else if (gamepad1.left_bumper){
+                bringPlatform.setPosition(-1);
+            } else if (gamepad1.right_bumper){
+                bringPlatform.setPosition(0);
             }
             
           
