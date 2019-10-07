@@ -1,16 +1,11 @@
-package org.firstinspires.ftc.teamcode;
-
+package org.firstinspires.ftc.teamcode.skystone;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.util.ElapsedTime;
-import com.qualcomm.robotcore.hardware.Servo;
-import com.qualcomm.robotcore.hardware.Gyroscope;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-@TeleOp(name="Test Controlled", group="Linear Opmode")
+@TeleOp(name="Tele Op", group="Linear Opmode")
 
 public class BasicDriveOpMode extends LinearOpMode {
 
@@ -34,15 +29,15 @@ public class BasicDriveOpMode extends LinearOpMode {
         grabber_turn = hardwareMap.get(Servo.class, "grabber_turn");
         grabber_vert = hardwareMap.get(Servo.class, "grabber_vert");
         bringPlatform = hardwareMap.get(Servo.class, "bringPlatform");
-            
-        bringPlatform.setPosition(0);    
-        
+
+        bringPlatform.setPosition(0);
+
         telemetry.addData("Status: ", "Hardware Configured");
         telemetry.update();
-        
+
         // leftDrive.setDirection(DcMotor.Direction.FORWARD);
         // rightDrive.setDirection(DcMotor.Direction.FORWARD);
-        
+
         waitForStart();
         runtime.reset();
 
@@ -55,21 +50,21 @@ public class BasicDriveOpMode extends LinearOpMode {
             double upPower;
             double bumpPower;
             double platPower;
-           
 
-            leftPower = -gamepad1.left_stick_y;
-            rightPower  =  -gamepad1.right_stick_y;
+
+            leftPower = gamepad1.left_stick_y;
+            rightPower  =  gamepad1.right_stick_y;
             armPower = -gamepad2.left_stick_y;
             turnPower = -gamepad2.right_stick_x;
             bumpPower = 0;
-        
-            
+
+
 
             leftDrive.setPower(leftPower/2);
             rightDrive.setPower(rightPower/2);
             arm_motor.setPower(armPower/2);
             grabber_turn.setPosition(turnPower/2);
-            
+
             if (gamepad2.right_bumper) {
                 grabber_vert.setPosition(bumpPower+.5);
             } else if (gamepad2.left_bumper){
@@ -79,8 +74,7 @@ public class BasicDriveOpMode extends LinearOpMode {
             } else if (gamepad1.right_bumper){
                 bringPlatform.setPosition(0);
             }
-            
-          
+
         }
     }
 }
