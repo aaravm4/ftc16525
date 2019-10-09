@@ -11,24 +11,14 @@ public class BasicDriveOpMode extends LinearOpMode {
 
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
-    private DcMotor leftDrive = null;
-    private DcMotor rightDrive = null;
-    private DcMotor arm_motor = null;
-    private Servo grabber_turn = null;
-    private Servo grabber_vert = null;
-    private Servo bringPlatform = null;
+    RobotConfig robotConfig = new RobotConfig(this);
 
     @Override
     public void runOpMode() {
+        robotConfig.init();
         telemetry.addData("Status", "Initialized");
         telemetry.update();
 
-        leftDrive  = hardwareMap.get(DcMotor.class, "leftDrive");
-        rightDrive = hardwareMap.get(DcMotor.class, "rightDrive");
-        arm_motor = hardwareMap.get(DcMotor.class, "arm_motor");
-        grabber_turn = hardwareMap.get(Servo.class, "grabber_turn");
-        grabber_vert = hardwareMap.get(Servo.class, "grabber_vert");
-        bringPlatform = hardwareMap.get(Servo.class, "bringPlatform");
 
         bringPlatform.setPosition(0);
 
@@ -60,13 +50,13 @@ public class BasicDriveOpMode extends LinearOpMode {
 
 
 
-            leftDrive.setPower(leftPower/2);
-            rightDrive.setPower(rightPower/2);
-            arm_motor.setPower(armPower/2);
-            grabber_turn.setPosition(turnPower/2);
+            this.leftDrive.setPower(leftPower/2);
+            this.rightDrive.setPower(rightPower/2);
+            this.arm_motor.setPower(armPower/3);
+            this.grabber_turn.setPosition(turnPower/2);
 
             if (gamepad2.right_bumper) {
-                grabber_vert.setPosition(bumpPower+.5);
+                grabber_vert.setPosition(bumpPower+.1);
             } else if (gamepad2.left_bumper){
                 grabber_vert.setPosition(bumpPower-.5);
             } else if (gamepad1.left_bumper){
