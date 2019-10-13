@@ -14,7 +14,7 @@ public class Driving extends LinearOpMode {
     RobotConfig robotConfig = new RobotConfig(this);
 
     @Override
-    public void runOpMode() {
+    public void runOpMode() throws InterruptedException {
         robotConfig.init();
         telemetry.addData("Status", "Initialized");
         telemetry.update();
