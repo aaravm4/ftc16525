@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 @TeleOp(name="Tele Op", group="Linear Opmode")
 
-public class BasicDriveOpMode extends LinearOpMode {
+public class Driving extends LinearOpMode {
 
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
