@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.skystone;
+  package org.firstinspires.ftc.teamcode.skystone;
 
 import org.firstinspires.ftc.teamcode.common.RobotConfig;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -14,11 +14,15 @@ import com.qualcomm.robotcore.hardware.Servo;
 public class Driving extends LinearOpMode {
 
     // Declare OpMode members.
+    private Servo bringPlatform = null;
     
     RobotConfig robotConfig = new RobotConfig(this);
-
+    
     @Override
     public void runOpMode() throws InterruptedException {
+        
+        bringPlatform = hardwareMap.get(Servo.class, "bringPlatform");
+        
         robotConfig.init();
         telemetry.addData("Status", "Initialized");
         telemetry.update();
@@ -29,8 +33,9 @@ public class Driving extends LinearOpMode {
         telemetry.addData("Status: ", "Hardware Configured");
         telemetry.update();
 
-        robotConfig.leftDrive.setDirection(DcMotor.Direction.FORWARD);
-        // rightDrive.setDirection(DcMotor.Direction.FORWARD);
+        robotConfig.leftDrive.setDirection(DcMotor.Direction.REVERSE);
+        bringPlatform.setDirection(Servo.Direction.REVERSE);
+        // rightDrive.setDirectiron(DcMotor.Direction.FORWARD);
 
         waitForStart();
 
