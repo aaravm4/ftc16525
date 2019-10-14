@@ -1,4 +1,4 @@
-  package org.firstinspires.ftc.teamcode.skystone;
+package org.firstinspires.ftc.teamcode.skystone;
 
 import org.firstinspires.ftc.teamcode.common.RobotConfig;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
