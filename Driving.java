@@ -10,12 +10,9 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 public class Driving extends LinearOpMode {
 
     // Declare OpMode members.
-    private ElapsedTime runtime = new ElapsedTime();
-    RobotConfig robotConfig = new RobotConfig(this);
 
     @Override
     public void runOpMode() throws InterruptedException {
-        robotConfig.init();
         telemetry.addData("Status", "Initialized");
         telemetry.update();
 
@@ -50,10 +47,10 @@ public class Driving extends LinearOpMode {
 
 
 
-            this.leftDrive.setPower(leftPower/2);
-            this.rightDrive.setPower(rightPower/2);
-            this.arm_motor.setPower(armPower/3);
-            this.grabber_turn.setPosition(turnPower/2);
+            leftDrive.setPower(leftPower/2);
+            rightDrive.setPower(rightPower/2);
+            arm_motor.setPower(armPower/3);
+            grabber_turn.setPosition(turnPower/2);
 
             if (gamepad2.right_bumper) {
                 grabber_vert.setPosition(bumpPower+.1);
