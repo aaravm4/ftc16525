@@ -1,32 +1,38 @@
-package org.firstinspires.ftc.teamcode.skystone;
+  package org.firstinspires.ftc.teamcode.skystone;
+
+import org.firstinspires.ftc.teamcode.common.RobotConfig;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.Blinker;
+import com.qualcomm.robotcore.hardware.Gyroscope;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
-import com.qualcomm.robotcore.util.ElapsedTime;
+
 
 @TeleOp(name="Tele Op", group="Linear Opmode")
 
 public class Driving extends LinearOpMode {
 
     // Declare OpMode members.
+    
+    RobotConfig robotConfig = new RobotConfig(this);
 
     @Override
     public void runOpMode() throws InterruptedException {
+        robotConfig.init();
         telemetry.addData("Status", "Initialized");
         telemetry.update();
 
 
-        bringPlatform.setPosition(0);
+        robotConfig.bringPlatform.setPosition(0);
 
         telemetry.addData("Status: ", "Hardware Configured");
         telemetry.update();
 
-        // leftDrive.setDirection(DcMotor.Direction.FORWARD);
+        robotConfig.leftDrive.setDirection(DcMotor.Direction.FORWARD);
         // rightDrive.setDirection(DcMotor.Direction.FORWARD);
 
         waitForStart();
-        runtime.reset();
 
         while (opModeIsActive()) {
 
@@ -47,19 +53,19 @@ public class Driving extends LinearOpMode {
 
 
 
-            leftDrive.setPower(leftPower/2);
-            rightDrive.setPower(rightPower/2);
-            arm_motor.setPower(armPower/3);
-            grabber_turn.setPosition(turnPower/2);
+            robotConfig.leftDrive.setPower(leftPower/2);
+            robotConfig.rightDrive.setPower(rightPower/2);
+            robotConfig.arm_motor.setPower(armPower/3);
+            robotConfig.grabber_turn.setPosition(turnPower/2);
 
             if (gamepad2.right_bumper) {
-                grabber_vert.setPosition(bumpPower+.1);
+                robotConfig.grabber_vert.setPosition(bumpPower+.5);
             } else if (gamepad2.left_bumper){
-                grabber_vert.setPosition(bumpPower-.5);
+                robotConfig.grabber_vert.setPosition(bumpPower-.5);
             } else if (gamepad1.left_bumper){
-                bringPlatform.setPosition(-1);
+                robotConfig.bringPlatform.setPosition(-1);
             } else if (gamepad1.right_bumper){
-                bringPlatform.setPosition(0);
+                robotConfig.bringPlatform.setPosition(0);
             }
 
         }
