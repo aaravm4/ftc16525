@@ -45,10 +45,9 @@ public class StoneDetection extends LinearOpMode {
     double rightPower;
     double ObjectHeightRatio;
 
-    //Adding Vuforia Key
+    //Vuforia Key Fragment
     private static final String VUFORIA_KEY =
-            "AZAarN7/////AAABmbwaPFXcCUKSuQXshhARVD0edTn5yksB2f5i9qUU/5VB4UkFTmki8BWBIyVGemPQFrTp5KfsGLrHy1FTZePcR9qfC3PD0IyiGJGy1Vbxp1dA4PUCvinmAPUEPZLopfxRYzyFc7uIhljkjcdiOLLzqreumEb2c4/7s1n4AgkxAxs8H6k/Mg+FCNOWqbSekb7msXG8IjgcqGrH7J16MYjvNZw8KHMShM2QDNyzfyyKVrSA4Hw1Ys6zc9yGuuC/go5IOWhFdqvwLMfEA331wfcLCPxXAXSTeOpfN+Jy7vRk8DMeoq5aooF5k3U5xXjyTxwJdzttGnmfNifw7kI8/GWvZS9U8FGjoki2QruawoJDJ3CZ";
-
+            " .....0edTkFTmki8BWBIyVGI...";
     // Initialzing both vuforia and tfod
     private VuforiaLocalizer vuforia;
     private TFObjectDetector tfod;
