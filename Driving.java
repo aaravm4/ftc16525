@@ -1,4 +1,4 @@
-  package org.firstinspires.ftc.teamcode.skystone;
+package org.firstinspires.ftc.teamcode.skystone;
 
 import org.firstinspires.ftc.teamcode.common.RobotConfig;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -21,20 +21,20 @@ public class Driving extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         
-        bringPlatform = hardwareMap.get(Servo.class, "bringPlatform");
+        bringPlatform = robotConfig.bringPlatform;
         
         robotConfig.init();
         telemetry.addData("Status", "Initialized");
         telemetry.update();
 
 
-        robotConfig.bringPlatform.setPosition(0);
+
 
         telemetry.addData("Status: ", "Hardware Configured");
         telemetry.update();
 
         robotConfig.leftDrive.setDirection(DcMotor.Direction.REVERSE);
-        bringPlatform.setDirection(Servo.Direction.REVERSE);
+        // bringPlatform.setDirection(Servo.Direction.REVERSE);
         // rightDrive.setDirectiron(DcMotor.Direction.FORWARD);
 
         waitForStart();
@@ -62,15 +62,22 @@ public class Driving extends LinearOpMode {
             robotConfig.rightDrive.setPower(rightPower/2);
             robotConfig.arm_motor.setPower(armPower/3);
             robotConfig.grabber_turn.setPosition(turnPower/2);
+            double secondturn_pow = 0;
 
             if (gamepad2.right_bumper) {
                 robotConfig.grabber_vert.setPosition(bumpPower+.5);
             } else if (gamepad2.left_bumper){
                 robotConfig.grabber_vert.setPosition(bumpPower-.5);
             } else if (gamepad1.left_bumper){
-                robotConfig.bringPlatform.setPosition(-1);
+                robotConfig.bringPlatform.setPosition(1);
             } else if (gamepad1.right_bumper){
                 robotConfig.bringPlatform.setPosition(0);
+            } else if (gamepad2.x){  
+                  secondturn_pow += .2;
+                robotConfig.grabber_turn_two.setPosition(secondturn_pow);
+            } else if (gamepad2.b){  
+                  secondturn_pow -= .2;
+                robotConfig.grabber_turn_two.setPosition(secondturn_pow);
             }
 
         }
