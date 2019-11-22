@@ -42,84 +42,84 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Remove a @Disabled the on the next line or two (if present) to add this opmode to the Driver Station OpMode list,
  * or add a @Disabled annotation to prevent this OpMode from being added to the Driver Station
  */
-@TeleOp(name="Mecanum Drive", group="Linear Opmode")
+@TeleOp(name = "Mecanum Drive", group = "Linear Opmode")
 
-public class MecanumDrive extends LinearOpMode {    
-    // Declaring Variables
-    private double forback;
-    private double rightleft;
-    private double turnPower;
-    private DcMotor frontleftDrive = null;
-    private DcMotor frontrightDrive = null;
-    private DcMotor backleftDrive = null;
-    private DcMotor backrightDrive = null;
-    
-    
-    @Override
-    public void runOpMode() throws InterruptedException {
-    
-        frontleftDrive = hardwareMap.get(DcMotor.class, "frontleftDrive");
-        backrightDrive = hardwareMap.get(DcMotor.class, "backrightDrive"); 
-        backleftDrive = hardwareMap.get(DcMotor.class, "backleftDrive");
-        frontrightDrive = hardwareMap.get(DcMotor.class, "frontrightDrive");
-        
-        telemetry.addData("Status: ", "Hardware Configured");
-        telemetry.update();
+public class MecanumDrive extends LinearOpMode {
+ // Declaring Variables
+ private double forback;
+ private double rightleft;
+ private double turnPower;
+ private DcMotor frontleftDrive = null;
+ private DcMotor frontrightDrive = null;
+ private DcMotor backleftDrive = null;
+ private DcMotor backrightDrive = null;
 
-        frontleftDrive.setDirection(DcMotor.Direction.REVERSE);
-        frontrightDrive.setDirection(DcMotor.Direction.REVERSE);
-        waitForStart();
-                
-          // Back Left Motor is 312 RPM
-          // Back Right Motor is 435 RPM
-          // This is why we multiply by 233/312, 233/435 to imitate a 233 rpm motor
-      
-        while (opModeIsActive()) {
-              // Only 3 Main Gamepad Inputs
-              forback = -gamepad1.left_stick_y;
-              rightleft  =  gamepad1.left_stick_x;
-              turnPower = gamepad1.right_stick_x;
-          
-                // For Going Forward and Backward
-              frontleftDrive.setPower(-(forback));
-              frontrightDrive.setPower(forback);
-              backleftDrive.setPower(forback);
-              backrightDrive.setPower(forback);
-          
-            // Strafing Right
-              if (rightleft > 0) {
-                telemetry.addData("s", "r");
-                telemetry.update();
-                frontleftDrive.setPower(-(rightleft));
-                frontrightDrive.setPower(-(rightleft));
-                backleftDrive.setPower(-(rightleft));
-                backrightDrive.setPower(rightleft);
-              }
-              // For when Going Left
-              if (rightleft < 0) {
-                telemetry.addData("s", "l");
-                telemetry.update();
-                frontleftDrive.setPower(-(rightleft));
-                frontrightDrive.setPower(-(rightleft));
-                backrightDrive.setPower(rightleft);
-                backleftDrive.setPower(-(rightleft));
-              }
-          
-              // Twisting Right
-              if (turnPower > 0) {
-              frontleftDrive.setPower(turnPower);
-              frontrightDrive.setPower(-turnPower);
-              backleftDrive.setPower(turnPower);
-              backrightDrive.setPower(-1*turnPower);
-            }
-          // Twisting Left
-          if (turnPower < 0) {
-              frontleftDrive.setPower(-turnPower);
-              frontrightDrive.setPower(turnPower);
-              backleftDrive.setPower(-1*turnPower);
-              backrightDrive.setPower(turnPower);
-            }
 
-        }
-    }
+ @Override
+ public void runOpMode() throws InterruptedException {
+
+  frontleftDrive = hardwareMap.get(DcMotor.class, "frontleftDrive");
+  backrightDrive = hardwareMap.get(DcMotor.class, "backrightDrive");
+  backleftDrive = hardwareMap.get(DcMotor.class, "backleftDrive");
+  frontrightDrive = hardwareMap.get(DcMotor.class, "frontrightDrive");
+
+  telemetry.addData("Status: ", "Hardware Configured");
+  telemetry.update();
+
+  frontleftDrive.setDirection(DcMotor.Direction.REVERSE);
+  frontrightDrive.setDirection(DcMotor.Direction.REVERSE);
+  waitForStart();
+
+  // Back Left Motor is 312 RPM
+  // Back Right Motor is 435 RPM
+  // This is why we multiply by 233/312, 233/435 to imitate a 233 rpm motor
+
+  while (opModeIsActive()) {
+   // Only 3 Main Gamepad Inputs
+   forback = -gamepad1.left_stick_y;
+   rightleft = gamepad1.left_stick_x;
+   turnPower = gamepad1.right_stick_x;
+
+   // For Going Forward and Backward
+   frontleftDrive.setPower(-(forback));
+   frontrightDrive.setPower(forback);
+   backleftDrive.setPower(forback);
+   backrightDrive.setPower(forback);
+
+   // Strafing Right
+   if (rightleft > 0) {
+    telemetry.addData("s", "r");
+    telemetry.update();
+    frontleftDrive.setPower(-(rightleft));
+    frontrightDrive.setPower(-(rightleft));
+    backleftDrive.setPower(-(rightleft));
+    backrightDrive.setPower(rightleft);
+   }
+   // For when Going Left
+   if (rightleft < 0) {
+    telemetry.addData("s", "l");
+    telemetry.update();
+    frontleftDrive.setPower(-(rightleft));
+    frontrightDrive.setPower(-(rightleft));
+    backrightDrive.setPower(rightleft);
+    backleftDrive.setPower(-(rightleft));
+   }
+
+   // Twisting Right
+   if (turnPower > 0) {
+    frontleftDrive.setPower(turnPower);
+    frontrightDrive.setPower(-turnPower);
+    backleftDrive.setPower(turnPower);
+    backrightDrive.setPower(-1 * turnPower);
+   }
+   // Twisting Left
+   if (turnPower < 0) {
+    frontleftDrive.setPower(-turnPower);
+    frontrightDrive.setPower(turnPower);
+    backleftDrive.setPower(-1 * turnPower);
+    backrightDrive.setPower(turnPower);
+   }
+
+  }
+ }
 }
