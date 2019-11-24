@@ -31,25 +31,7 @@ public class AutoPlatform extends LinearOpMode {
         waitForStart();
 
         while (opModeIsActive()) {
-          
-        	// Going Forward
-           	robotConfig.frontleftDrive.setPower(0.5);
-          	robotConfig.frontrightDrive.setPower(0.5);
-          	robotConfig.backleftDrive.setPower(0.5);
-           	robotConfig.backrightDrive.setPower(0.5);
-          
-		sleep(1000);
-          	
-		// Bringing down Grabber
-          	robotConfig.platGrabber.setDirection(0.5);
-          	
-		// Going back
-          	robotConfig.frontleftDrive.setPower(-0.5);
-            	robotConfig.frontrightDrive.setPower(-0.5);
-            	robotConfig.backleftDrive.setPower(-0.5);
-           	robotConfig.backrightDrive.setPower(-0.5);
-          	
-          	sleep(1000);
+          	sleep(20000);
 		
 		// Going under the bridge (Left)
             	robotConfig.frontleftDrive.setPower(-0.5);
