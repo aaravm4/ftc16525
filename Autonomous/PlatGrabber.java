@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 
-
+// Made by Avi A Still testing...
 @Autonomous(name="Mecanum Drive", group="Linear Opmode")
 
 public class AutoPlatform extends LinearOpMode {    
@@ -23,7 +23,7 @@ public class AutoPlatform extends LinearOpMode {
 
         telemetry.addData("Status: ", "Hardware Configured");
         telemetry.update();
-
+		
         robotConfig.frontleftDrive.setDirection(DcMotor.Direction.FORWARD);
       	robotConfig.frontrightDrive.setDirection(DcMotor.Direction.FORWARD);
       	robotConfig.backleftDrive.setDirection(DcMotor.Direction.FORWARD);
@@ -32,27 +32,27 @@ public class AutoPlatform extends LinearOpMode {
 
         while (opModeIsActive()) {
           
-        		// For Going Forward and Backward
-            robotConfig.frontleftDrive.setPower(0.5);
-            robotConfig.frontrightDrive.setPower(0.5);
-            robotConfig.backleftDrive.setPower(0.5);
-            robotConfig.backrightDrive.setPower(0.5);
-          	
-          	sleep(1000);
+        	// For Going Forward and Backward
+           	robotConfig.frontleftDrive.setPower(0.5);
+          	robotConfig.frontrightDrive.setPower(0.5);
+          	robotConfig.backleftDrive.setPower(0.5);
+           	robotConfig.backrightDrive.setPower(0.5);
+          
+		sleep(1000);
           	
           	robotConfig.platGrabber.setDirection(0.5);
           
           	robotConfig.frontleftDrive.setPower(-0.5);
-            robotConfig.frontrightDrive.setPower(-0.5);
-            robotConfig.backleftDrive.setPower(-0.5);
-            robotConfig.backrightDrive.setPower(-0.5);
+            	robotConfig.frontrightDrive.setPower(-0.5);
+            	robotConfig.backleftDrive.setPower(-0.5);
+           	robotConfig.backrightDrive.setPower(-0.5);
           	
           	sleep(1000);
 
-            robotConfig.frontleftDrive.setPower(-0.5);
-            robotConfig.frontrightDrive.setPower(0.5);
-	  				robotConfig.backrightDrive.setPower(-0.5);
-     	  	  robotConfig.backleftDrive.setPower(0.5);
+            	robotConfig.frontleftDrive.setPower(-0.5);
+            	robotConfig.frontrightDrive.setPower(0.5);
+	  	robotConfig.backrightDrive.setPower(-0.5);
+     	  	robotConfig.backleftDrive.setPower(0.5);
           
           	sleep(1000);
 
