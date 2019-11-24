@@ -34,10 +34,10 @@ public class AutoPlatform extends LinearOpMode {
           	sleep(20000);
 		
 		// Going under the bridge (Left)
-            	robotConfig.frontleftDrive.setPower(-0.5);
-            	robotConfig.frontrightDrive.setPower(0.5);
-	  	robotConfig.backrightDrive.setPower(-0.5);
-     	  	robotConfig.backleftDrive.setPower(0.5);
+            	robotConfig.frontleftDrive.setPower(0.5);
+            	robotConfig.frontrightDrive.setPower(-0.5);
+	  	robotConfig.backrightDrive.setPower(0.5);
+     	  	robotConfig.backleftDrive.setPower(-0.5);
           
           	sleep(1000);
 
