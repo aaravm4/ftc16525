@@ -86,36 +86,20 @@ public class MecanumDrive extends LinearOpMode {
 
 			// Strafing Right
 			if (rightleft > 0) {
-				telemetry.addData("s", "r");
-				telemetry.update();
-				frontleftDrive.setPower( - (rightleft));
-				frontrightDrive.setPower( - (rightleft));
-				backleftDrive.setPower( - (rightleft));
-				backrightDrive.setPower(rightleft);
+				
 			}
 			// For when Going Left
 			if (rightleft < 0) {
-				telemetry.addData("s", "l");
-				telemetry.update();
-				frontleftDrive.setPower( - (rightleft));
-				frontrightDrive.setPower( - (rightleft));
-				backrightDrive.setPower(rightleft);
-				backleftDrive.setPower( - (rightleft));
+				
 			}
 
 			// Twisting Right
 			if (turnPower > 0) {
-				frontleftDrive.setPower(turnPower);
-				frontrightDrive.setPower( - turnPower);
-				backleftDrive.setPower(turnPower);
-				backrightDrive.setPower( - 1 * turnPower);
+				
 			}
 			// Twisting Left
 			if (turnPower < 0) {
-				frontleftDrive.setPower( - turnPower);
-				frontrightDrive.setPower(turnPower);
-				backleftDrive.setPower( - 1 * turnPower);
-				backrightDrive.setPower(turnPower);
+				
 			}
 
 		}
