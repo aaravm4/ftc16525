@@ -80,7 +80,7 @@ public class MecanumDrive extends LinearOpMode {
 
             // Strafing Right
             if (rightleft > 0) {
-                telemetry.addData("s", "r");
+                telemetry.addData("Strafing", "Right");
                 telemetry.update();
                 frontleftDrive.setPower(-(rightleft));
                 frontrightDrive.setPower(-(rightleft));
@@ -89,7 +89,7 @@ public class MecanumDrive extends LinearOpMode {
             }
             // Strafing Left
             if (rightleft < 0) {
-                telemetry.addData("s", "l");
+                telemetry.addData("Strafing", "Left");
                 telemetry.update();
                 frontleftDrive.setPower(-(rightleft));
                 frontrightDrive.setPower(-(rightleft));
@@ -99,7 +99,7 @@ public class MecanumDrive extends LinearOpMode {
 
             // Twisting Right
             if (turnPowerm > 0) {
-                telemetry.addData("foo", "b");
+                telemetry.addData("Turning", "Right");
                 telemetry.update();
                 frontleftDrive.setPower(-turnPowerm);
                 frontrightDrive.setPower(turnPowerm);
@@ -109,6 +109,8 @@ public class MecanumDrive extends LinearOpMode {
 
             // Twisting Left
             if (turnPowerm < 0) {
+                telemetry.addData("Turning", "Left");
+                telemetry.update();
                 frontleftDrive.setPower(-turnPowerm);
                 frontrightDrive.setPower(turnPowerm);
                 backleftDrive.setPower(-turnPowerm);
@@ -116,8 +118,12 @@ public class MecanumDrive extends LinearOpMode {
             }
             // Engaging and Disengaging the Platform
             if (gamepad1.left_bumper) {
+                telemtry.addData("Platform", "Engaged");
+                telemetry.update();
                 bringPlatform.setPosition(.7);
             } else if (gamepad1.right_bumper) {
+                telemtry.addData("Platform", "Disengaged");
+                telemetry.update();
                 bringPlatform.setPosition(.3);
             }
             
