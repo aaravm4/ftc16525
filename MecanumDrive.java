@@ -84,20 +84,20 @@ public class MecanumDrive extends LinearOpMode {
 			backleftDrive.setPower(forback);
 			backrightDrive.setPower(forback);
 
-			// Strafing Right
+			
 			if (rightleft > 0) {
 				
 			}
-			// For when Going Left
+			
 			if (rightleft < 0) {
 				
 			}
 
-			// Twisting Right
+			
 			if (turnPower > 0) {
 				
 			}
-			// Twisting Left
+		
 			if (turnPower < 0) {
 				
 			}
